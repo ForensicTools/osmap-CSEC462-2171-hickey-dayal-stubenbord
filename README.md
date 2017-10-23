@@ -1,1 +1,5 @@
-# osmap-CSEC462-2171-hickey-dayal-stubenbord
+# osmap project 
+# Authors: Pranat Dayal, Jimmy Hickey, Ian Stubenbord 
+
+OSmap is a network visualization tool that performs OS discovery for hosts present in a network traffic
+
