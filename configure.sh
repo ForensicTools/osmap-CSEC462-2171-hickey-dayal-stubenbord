@@ -11,11 +11,11 @@ nc='\033[0m'
 function packages
 {
     echo -e "${green}[*] Installing libglib2.0${nc}"
-    apt-get -y install libglib2.0-dev
+    apt-get install libglib2.0-dev
     echo -e "${green}[*] Installing libpcap${nc}"
-    apt-get -y intall libpcap-dev
+    apt-get intall libpcap-dev
     echo -e "${green}[*] Installing python-dev${nc}"
-    apt-get -y install python-dev
+    apt-get install python-dev
 }
 
 function downloads
