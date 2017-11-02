@@ -12,13 +12,13 @@ function packages
 {
     echo -e "${green}[*] Installing libglib2.0${nc}"
     glib = $(apt-get install libglib2.0-dev)
-    echo glib
+    echo $glib
     echo -e "${green}[*] Installing libpcap${nc}"
     libpcap = $(apt-get install libpcap-dev)
-    echo libpcap
+    echo $libpcap
     echo -e "${green}[*] Installing python-dev${nc}"
     pydev = $(apt-get install python-dev)
-    echo pydev
+    echo $pydev
 }
 
 function downloads
