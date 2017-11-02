@@ -11,11 +11,14 @@ nc='\033[0m'
 function packages
 {
     echo -e "${green}[*] Installing libglib2.0${nc}"
-    apt-get install libglib2.0-dev
+    glib = $(apt-get install libglib2.0-dev)
+    echo "$glib"
     echo -e "${green}[*] Installing libpcap${nc}"
-    apt-get intall libpcap-dev
+    libpcap = $(apt-get install libpcap-dev)
+    echo "$libpcap"
     echo -e "${green}[*] Installing python-dev${nc}"
-    apt-get install python-dev
+    pydev = $(apt-get install python-dev)
+    echo "$pydev"
 }
 
 function downloads
@@ -58,10 +61,10 @@ function silk
 
 function main
 {
-    echo -e "${green}[*] Configuring OSmap${nc}"
-    echo -e "${green}  Installing required packages${nc}"
+    echo -e "${green} [*] Configuring OSmap${nc}"
+    echo -e "${green} Installing required packages${nc}"
     $(packages)
-    echo -e "${green}[+] Completed installation of required packages${nc}"
+    echo -e "${green} [+] Completed installation of required packages${nc}"
 
 
 }
