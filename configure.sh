@@ -60,7 +60,7 @@ function main
 {
     echo "${green}[*] Configuring OSmap${nc}"
     echo "${green}  Installing required packages${nc}"
-    packages
+    $(packages)
     echo "${green}[+] Completed installation of required packages${nc}"
 
 
