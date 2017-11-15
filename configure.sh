@@ -7,7 +7,7 @@
 red='\033[0;31m'
 green='\033[0;32m'
 nc='\033[0m'
-
+wd=$(pwd)
 function packages
 {
     echo -e "${green} Installing required packages${nc}"
@@ -57,7 +57,8 @@ function silk
 }
 function p0f
 {
-    tar xvfz p0f-3.09b.tgz
+    cd $wd
+    tar -xvfz p0f-3.09b.tgz
     cd p0f-3.09b
     ./build.sh
 }
