@@ -56,8 +56,8 @@ function silk
 }
 function p0f
 {
-    tar xvfz p0f*
-    cd p0f*
+    tar xvfz p0f-3.09b.tgz
+    cd p0f-3.09b
     ./build.sh
 }
 
