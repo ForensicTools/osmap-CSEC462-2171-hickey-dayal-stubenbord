@@ -10,15 +10,15 @@ nc='\033[0m'
 
 function packages
 {
+    echo -e "${green} Installing required packages${nc}"
     echo -e "${green}[*] Installing libglib2.0${nc}"
-    glib = $(apt-get install libglib2.0-dev)
-    echo $glib
+    apt-get install libglib2.0-dev
     echo -e "${green}[*] Installing libpcap${nc}"
-    libpcap = $(apt-get install libpcap-dev)
-    echo $libpcap
+    apt-get install libpcap-dev
     echo -e "${green}[*] Installing python-dev${nc}"
-    pydev = $(apt-get install python-dev)
-    echo $pydev
+    apt-get install python-dev
+    echo -e "${green} [+] Completed installation of required packages${nc}"
+
 }
 
 function downloads
@@ -58,14 +58,24 @@ function silk
     make
     make install
 }
+function p0f
+{
+    cmd=$(pwd)
+    cd $cmd
+    tar xvfz p0f*
+    cd p0f*
+    ./build.sh
+}
 
 function main
 {
     echo -e "${green} [*] Configuring OSmap${nc}"
-    echo -e "${green} Installing required packages${nc}"
-    $(packages)
-    echo -e "${green} [+] Completed installation of required packages${nc}"
-
+    packages
+    downloads
+    fixbuf
+    yaf
+    silk
+    p0f
 
 }
 main
