@@ -20,7 +20,7 @@ def generate(pcap):
 	#make a yaf file, a silk file, and make a file from p0f
 #	i = "rwp2yaf2silk --in=" + pcap + " --out=osmap.silk"
 #	j = "yaf --in " + pcap + " --out osmap.yaf"
-#	k = "./p0f -r ../" + pcap + " -o ../osmap.p0f > /dev/null"
+	k = "./p0f -r ../" + pcap + " -o ../osmap.p0f > /dev/null"
 	#subprocess.call(["yaf", i, "--out osmap.yaf"])
 #	os.system(i)
 #	os.system(j)
