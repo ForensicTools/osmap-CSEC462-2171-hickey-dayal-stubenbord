@@ -12,7 +12,7 @@ function packages
 {
     echo -e "${green} Installing required packages${nc}"
     echo -e "${green}[*] Installing libglib2.0${nc}"
-    apt-get install libglib2.0-dev
+    apt-get install git libglib2.0-dev
     echo -e "${green}[*] Installing libpcap${nc}"
     apt-get install libpcap-dev
     echo -e "${green}[*] Installing python-dev${nc}"
@@ -58,8 +58,8 @@ function silk
 function p0f
 {
     cd $wd
-    tar xvfz p0f-3.09b.tgz
-    cd p0f-3.09b
+    git clone https://github.com/obormot/p0f-JSON
+    cd p0f-JSON
     ./build.sh
 }
 
