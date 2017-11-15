@@ -16,7 +16,8 @@ function packages
     echo -e "${green}[*] Installing libpcap${nc}"
     apt-get install libpcap-dev
     echo -e "${green}[*] Installing python-dev${nc}"
-    apt-get install python-dev
+    apt-get install python-dev python-pip
+    pip install pyshark
     echo -e "${green} [+] Completed installation of required packages${nc}"
 
 }
