@@ -58,7 +58,7 @@ function silk
 function p0f
 {
     cd $wd
-    tar -xvfz p0f-3.09b.tgz
+    tar xvfz p0f-3.09b.tgz
     cd p0f-3.09b
     ./build.sh
 }
