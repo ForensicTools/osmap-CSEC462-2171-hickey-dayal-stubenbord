@@ -5,9 +5,15 @@ import pyshark
 import sys
 import os
 
+#dictionary mapping ip to os, not including ??? values
+ip2os = {}
+#dictionary mapping ip to os, including ??? values
+os_total = {}
+
 def cleanup():
 	#remove the files that were created in the running of the program
-	os.system("rm osmap.silk; rm osmap.yaf; rm osmap.p0f")
+	#os.system("rm osmap.silk; rm osmap.yaf; rm osmap.p0f")
+	os.system("rm osmap.silk; rm osmap.yaf")
 	
 
 def generate(pcap):
@@ -28,10 +34,38 @@ def analysis():
 	#now lets use p0f to go through the lines and get the OS detected
 	readFile = open("osmap.p0f", "r")
 	for line in readFile:
-		getOs(line)
+		ip = getIP(line)
+		os = getOs(line)
+		if not (ip in ip2os) and (os == "???"):
+			ip2os[ip] = os
+		if not (ip in os_total):
+			os_total[ip] = os
+		if (ip in os_total) and (os == "???"):
+			os_total[ip] = os
+
+def getIP(line):
+	#gets the IP address from the p0f output
+	index = line.find("cli=")
+	if index != -1:
+		ipInfo = line[index:]
+		split = ipInfo.partition("/")
+		ip = split[0]
+		return ip[4:]
 
 def getOs(line):
-	#this is where we can use regex to get the os detected from the line
+	#this is where we can use regex to get the os detected from p0f
+	#splitter = line.split();
+	#data = splitter[2]
+	#fields = data.split("|")
+	#for i in fields:
+	#	if i[0:3] == "os":
+	#		print i
+	index = line.find("os=")
+	if index != -1:
+		osInfo = line[index:]
+		split = osInfo.partition("|")
+		os = split[0]
+		return os[3:]
 
 def main():
 	#print out usage message if file not provided or too many args
