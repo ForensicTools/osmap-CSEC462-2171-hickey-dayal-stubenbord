@@ -14,7 +14,7 @@ def cleanup():
 	#remove the files that were created in the running of the program
 	#os.system("rm osmap.silk; rm osmap.yaf; rm osmap.p0f")
 	os.system("rm osmap.silk; rm osmap.yaf")
-	
+
 
 def generate(pcap):
 	#make a yaf file, a silk file, and make a file from p0f
@@ -24,12 +24,12 @@ def generate(pcap):
 	#subprocess.call(["yaf", i, "--out osmap.yaf"])
 	os.system(i)
 	os.system(j)
-	os.chdir("p0f-3.09b")
+	os.chdir("p0f-JSON")
 	os.system(k)
 	os.chdir("..")
 
 def analysis():
-	#this is where we can use pyshark to go through the capture 
+	#this is where we can use pyshark to go through the capture
 	#provided and see what is in it
 	#now lets use p0f to go through the lines and get the OS detected
 	readFile = open("osmap.p0f", "r")
