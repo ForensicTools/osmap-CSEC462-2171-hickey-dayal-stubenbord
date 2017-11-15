@@ -60,8 +60,6 @@ function silk
 }
 function p0f
 {
-    cmd=$(pwd)
-    cd $cmd
     tar xvfz p0f*
     cd p0f*
     ./build.sh
