@@ -67,9 +67,9 @@ function p0f
 function main
 {
     echo -e "${green} [*] Configuring OSmap${nc}"
-    #packages
+    packages
     #downloads
-    #fixbuf
+    fixbuf
     #yaf
     #silk
     p0f
