@@ -10,20 +10,20 @@ ip2os = {}
 #dictionary mapping ip to os, including ??? values
 os_total = {}
 
-def cleanup():
+#def cleanup():
 	#remove the files that were created in the running of the program
 	#os.system("rm osmap.silk; rm osmap.yaf; rm osmap.p0f")
-	os.system("rm osmap.silk; rm osmap.yaf")
+#	os.system("rm osmap.silk; rm osmap.yaf")
 
 
 def generate(pcap):
 	#make a yaf file, a silk file, and make a file from p0f
-	i = "rwp2yaf2silk --in=" + pcap + " --out=osmap.silk"
-	j = "yaf --in " + pcap + " --out osmap.yaf"
+#	i = "rwp2yaf2silk --in=" + pcap + " --out=osmap.silk"
+#	j = "yaf --in " + pcap + " --out osmap.yaf"
 	k = "./p0f -r ../" + pcap + " -o ../osmap.p0f > /dev/null"
 	#subprocess.call(["yaf", i, "--out osmap.yaf"])
-	os.system(i)
-	os.system(j)
+#	os.system(i)
+#	os.system(j)
 	os.chdir("p0f-JSON")
 	os.system(k)
 	os.chdir("..")
@@ -77,6 +77,6 @@ def main():
 		cap = pyshark.FileCapture(sys.argv[1])
 		generate(pcap)
 		analysis()
-		cleanup()
+#		cleanup()
 
 if __name__=="__main__": main()

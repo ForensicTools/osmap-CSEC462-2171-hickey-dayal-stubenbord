@@ -68,11 +68,8 @@ function main
 {
     echo -e "${green} [*] Configuring OSmap${nc}"
     packages
-    downloads
-    fixbuf
-    yaf
-    silk
     p0f
+    echo -e "${green}[+] oSmap configured${nc}"
 
 }
 main
