@@ -72,6 +72,6 @@ def main():
 				#print("IP: " + ip + "Tally:" + counts[ip] + "OS: " + ip2os[ip])
 				outputWriter.writerow([ip,ip2os[ip],counts[ip]])
 		#cleanup()
-	webbrowser.open("./visualize/index.html")
+	        webbrowser.open("./visualize/index.html")
 
 if __name__=="__main__": main()

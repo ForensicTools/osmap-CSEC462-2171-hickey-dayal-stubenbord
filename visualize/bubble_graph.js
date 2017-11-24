@@ -1,6 +1,6 @@
 function bubbleChart() {
-    var width = 10000,
-        height = 10000,
+    var width = 960,
+        height = 960,
         maxRadius = 15,
         columnForColors = "category",
         columnForRadius = "views";
