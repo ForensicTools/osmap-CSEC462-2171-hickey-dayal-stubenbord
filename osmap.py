@@ -6,6 +6,7 @@ import sys
 import os
 import csv
 import re
+import webbrowser
 
 ip2os = dict()  # ip key -> Operating system Entry ['192.168.1.1': 'windows 10']
 
@@ -63,13 +64,14 @@ def main():
 		cap = pyshark.FileCapture(sys.argv[1])
 		generate(pcap)
 		analysis()
-		output = "osmap" + ".csv"
-		with open(output,'wb') as csvfile:	  # create output csv using input file name
+		output = "./visualize/osmap" + ".csv"
+		with open(output,'wb+') as csvfile:	  # create output csv using input file name
 			outputWriter = csv.writer(csvfile, delimiter=',',quotechar='"', quoting=csv.QUOTE_MINIMAL)
 			outputWriter.writerow(['title','category','views']) # 'IP','OS','# of Packets'
 			for ip in counts:
 				#print("IP: " + ip + "Tally:" + counts[ip] + "OS: " + ip2os[ip])
 				outputWriter.writerow([ip,ip2os[ip],counts[ip]])
 		#cleanup()
+	webbrowser.open("./visualize/index.html")
 
 if __name__=="__main__": main()
