@@ -1,7 +1,7 @@
 function bubbleChart() {
-    var width = 960,
-        height = 960,
-        maxRadius = 6,
+    var width = 10000,
+        height = 10000,
+        maxRadius = 15,
         columnForColors = "category",
         columnForRadius = "views";
 
@@ -26,7 +26,7 @@ function bubbleChart() {
 
 
         var simulation = d3.forceSimulation(data)
-            .force("charge", d3.forceManyBody().strength([-50]))
+            .force("charge", d3.forceManyBody().strength([-30]))
             .force("x", d3.forceX())
             .force("y", d3.forceY())
             .on("tick", ticked);
@@ -34,7 +34,7 @@ function bubbleChart() {
         function ticked(e) {
             node.attr("cx", function(d) {
                     return d.x;
-                })
+                 })
                 .attr("cy", function(d) {
                     return d.y;
                 });
@@ -68,7 +68,10 @@ function bubbleChart() {
             .on("mouseout", function() {
                 return tooltip.style("visibility", "hidden");
             });
+
     }
+
+
 
     chart.width = function(value) {
         if (!arguments.length) {
