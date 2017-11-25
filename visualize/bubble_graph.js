@@ -11,6 +11,7 @@ function bubbleChart() {
             svg = div.selectAll('svg');
         svg.attr('width', width).attr('height', height);
 
+
         var tooltip = selection
             .append("div")
             .style("position", "absolute")
@@ -35,8 +36,7 @@ function bubbleChart() {
 
 
         function ticked(e) {
-
-            node.attr("cx", function(d) {
+            node.attr ("cx", function(d) {
                     return d.x;
                  })
                 .attr("cy", function(d) {
@@ -44,12 +44,12 @@ function bubbleChart() {
                 });
         }
 
-        var colorCircles = d3.scaleOrdinal(d3.schemeCategory10);
+        var colorCircles = d3.scaleOrdinal(d3.schemeCategory20c);
         var scaleRadius = d3.scaleLinear().domain([d3.min(data, function(d) {
             return +d[columnForRadius];
         }), d3.max(data, function(d) {
             return +d[columnForRadius];
-        })]).range([7, 25])    //5,18
+        })]).range([7,28])     //5,18
 
         var node = svg.selectAll("circle")
             .sort(data)
@@ -66,11 +66,11 @@ function bubbleChart() {
             .attr('transform', 'translate(' + [width/2 , height/2 ] + ')')
             .on("mouseover", function(d) {
                 d3.select(this)
-                    .style('stroke','Black')
+                    .style('stroke','red')
                 tooltip.html(d[columnForColors] + "<br>" + d.title + "<br>" + d[columnForRadius] + " Packets");
                 return tooltip.style("visibility", "visible");
             })
-            .on("mousemove", function() {
+            .on("mousemove",  function() {
                 return tooltip.style("top", (d3.event.pageY - 10) + "px").style("left", (d3.event.pageX + 10) + "px");
             })
             .on("mouseout", function() {
@@ -80,13 +80,10 @@ function bubbleChart() {
             })
             .on("click",function(){
                 d3.select(this)
-                    .style('stroke','Black')
+                    .style('stroke','red')
 
-            });
-
-
-    }
-
+            })
+    ;}
 
 
     chart.width = function(value) {
@@ -123,4 +120,6 @@ function bubbleChart() {
     };
 
     return chart;
+
 }
+
