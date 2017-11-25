@@ -39,6 +39,7 @@ def analysis():
 			if ip not in ip2os:
 				ip2os[ip] = os
 			elif ip2os[ip] == "???":
+                                ip2os[ip].replace("???","Router/Gateway")
 				ip2os[ip] = os
 		index = line.find("subj=")
  		if index != -1:
