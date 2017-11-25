@@ -1,7 +1,7 @@
 function bubbleChart() {
-    var width = 960,
-        height = 960,
-        maxRadius = 15,
+    var width = 10000,
+        height = 10000,
+        maxRadius = 10000,
         columnForColors = "category",
         columnForRadius = "views";
 
@@ -16,9 +16,9 @@ function bubbleChart() {
             .style("position", "absolute")
             .style("visibility", "hidden")
             .style("color", "white")
-            .style("padding", "8px")
-            .style("background-color", "#626D71")
-            .style("border-radius", "6px")
+            .style("padding", "12px")
+            .style("background-color", "#626D72")
+            .style("border-radius", "12px")
             .style("text-align", "center")
             .style("font-family", "monospace")
             .style("width", "400px")
@@ -26,12 +26,16 @@ function bubbleChart() {
 
 
         var simulation = d3.forceSimulation(data)
-            .force("charge", d3.forceManyBody().strength([-30]))
-            .force("x", d3.forceX())
-            .force("y", d3.forceY())
+            .velocityDecay(0.2)
+            .force("collide", d3.forceManyBody().strength([-50]))
+            .force("x", d3.forceX().strength(0.2))
+            .force("y", d3.forceY().strength(0.2))
+            //.force("collide",dc.forceCollide())
             .on("tick", ticked);
 
+
         function ticked(e) {
+
             node.attr("cx", function(d) {
                     return d.x;
                  })
@@ -45,9 +49,10 @@ function bubbleChart() {
             return +d[columnForRadius];
         }), d3.max(data, function(d) {
             return +d[columnForRadius];
-        })]).range([5, 18])
+        })]).range([7, 25])    //5,18
 
         var node = svg.selectAll("circle")
+            .sort(data)
             .data(data)
             .enter()
             .append("circle")
@@ -57,8 +62,11 @@ function bubbleChart() {
             .style("fill", function(d) {
                 return colorCircles(d[columnForColors])
             })
-            .attr('transform', 'translate(' + [width / 2, height / 2] + ')')
+            .style('stroke','none')
+            .attr('transform', 'translate(' + [width/2 , height/2 ] + ')')
             .on("mouseover", function(d) {
+                d3.select(this)
+                    .style('stroke','Black')
                 tooltip.html(d[columnForColors] + "<br>" + d.title + "<br>" + d[columnForRadius] + " Packets");
                 return tooltip.style("visibility", "visible");
             })
@@ -66,8 +74,16 @@ function bubbleChart() {
                 return tooltip.style("top", (d3.event.pageY - 10) + "px").style("left", (d3.event.pageX + 10) + "px");
             })
             .on("mouseout", function() {
+                d3.select(this)
+                    .style('stroke','none')
                 return tooltip.style("visibility", "hidden");
+            })
+            .on("click",function(){
+                d3.select(this)
+                    .style('stroke','Black')
+
             });
+
 
     }
 
