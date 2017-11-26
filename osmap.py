@@ -12,8 +12,6 @@ ip2os = dict()  # ip key -> Operating system Entry ['192.168.1.1': 'windows 10']
 
 counts = dict()  # ip key -> # of lines IP seen in .p0f ['192.168.1.1': 142]
 
-#def cleanup():
-	#os.system("rm osmap.p0f")
 
 def generate(pcap):
 	k = "./p0f -r ../" + pcap + " -o ../osmap.p0f > /dev/null"
@@ -35,7 +33,6 @@ def analysis():
 				ip = re.search(r'(?<=srv=)(.*?)(?=\/)', line).group(1)
 				os = re.search(r'(?<=os=)(.*?)(?=\|)', line).group(1)
 
-			#counts[ip] = counts.get(ip, 0) + 1		# counts [ '192.0.0.1' : # of packets ]
 			if ip not in ip2os:
 				ip2os[ip] = os
 			elif ip2os[ip] == "???":
@@ -72,7 +69,6 @@ def main():
 			for ip in counts:
 				#print("IP: " + ip + "Tally:" + counts[ip] + "OS: " + ip2os[ip])
 				outputWriter.writerow([ip,ip2os[ip],counts[ip]])
-		#cleanup()
 	        webbrowser.open("./visualize/index.html")
 
 if __name__=="__main__": main()
