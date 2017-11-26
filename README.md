@@ -9,6 +9,9 @@ OSmap was made and configured to be run on Debian systems. Modification of the c
 
 
 Authors: 
+
 Pranat Dayal    pxd5104@rit.edu
+
 Jimmy Hickey    jjh6308@rit.edu
+
 Ian Stubenbord    ixs6256@rit.edu
