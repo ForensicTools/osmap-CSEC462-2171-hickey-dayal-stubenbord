@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 __author__ = "Pranat Dayal, Jimmy Hickey, Ian Stubenbord"
 
-#import pyshark
+import pyshark
 import sys
 import os
 import csv
