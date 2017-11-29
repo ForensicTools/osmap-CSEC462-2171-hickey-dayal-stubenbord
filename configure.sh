@@ -23,39 +23,6 @@ function packages
 
 }
 
-function downloads
-{
-    wget http://tools.netsa.cert.org/releases/silk-3.11.0.tar.gz
-    wget http://tools.netsa.cert.org/releases/libfixbuf-1.7.0.tar.gz
-    wget http://tools.netsa.cert.org/releases/yaf-2.7.1.tar.gz
-}
-
-function fixbuf
-{
-    tar -zxvf libfixbuf-1.7.0.tar.gz
-    cd libfixbuf-1.7.0
-    ./configure && make && make install
-}
-
-function yaf
-{
-    tar -zxvf yaf-2.7.1.tar.gz
-    cd yaf-2.7.1
-    export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig
-    ./configure --enable-applabel
-    make
-    make install
-}
-
-function silk
-{
-    tar -xvzf silk-3.11.0.tar.gz
-    cd silk-3.11.0
-    ./configure \
-        --with-libfixbuf=/usr/local/lib/pkgconfig/ --with-python
-    make
-    make install
-}
 function p0f
 {
     cd $wd

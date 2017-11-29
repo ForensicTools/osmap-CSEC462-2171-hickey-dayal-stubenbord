@@ -1,4 +1,5 @@
 function bubbleChart() {
+    var x = document.title;
     var width = 10000,
         height = 10000,
         maxRadius = 10000,
@@ -44,12 +45,12 @@ function bubbleChart() {
                 });
         }
 
-        var colorCircles = d3.scaleOrdinal(d3.schemeCategory20c);
+        var colorCircles = d3.scaleOrdinal(d3.schemeCategory10);
         var scaleRadius = d3.scaleLinear().domain([d3.min(data, function(d) {
             return +d[columnForRadius];
         }), d3.max(data, function(d) {
             return +d[columnForRadius];
-        })]).range([7,28])     //5,18
+        })]).range([5,18])     //5,18
 
         var node = svg.selectAll("circle")
             .sort(data)
@@ -121,5 +122,5 @@ function bubbleChart() {
 
     return chart;
 
-}
+}i
 

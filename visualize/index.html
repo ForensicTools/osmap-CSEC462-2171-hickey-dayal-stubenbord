@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<body bgcolor="#00000F">
+
+<body bgcolor="#000000">
 <div class="chart-example" id="chart"><svg></svg></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.6.0/d3.min.js"></script>
 <script src="bubble_graph.js"></script>
 <script>
 document.title = "OSMAP";
-    d3.csv('osmap1.csv', function(error, data) {
+
+    d3.csv('osmap-template.csv', function(error, data) {
       if (error) {
           console.error('Error getting or parsing the data.');
           throw error;
