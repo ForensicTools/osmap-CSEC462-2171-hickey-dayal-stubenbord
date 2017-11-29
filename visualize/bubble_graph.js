@@ -49,7 +49,7 @@ function bubbleChart() {
             return +d[columnForRadius];
         }), d3.max(data, function(d) {
             return +d[columnForRadius];
-        })]).range([7,28])     //5,18
+        })]).range([5,18])     //5,18
 
         var node = svg.selectAll("circle")
             .sort(data)
