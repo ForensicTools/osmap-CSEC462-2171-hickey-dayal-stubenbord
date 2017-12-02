@@ -44,6 +44,8 @@ def analysis():
                     ip2os[ip] = "Unknown"
                 counts[ip] = counts.get(ip, 0) + 1
 
+def toptalker():
+    os.system("bash visualization/stats/toptalker.sh")
 
 def main():
 	#print out usage message if file not provided or too many args
@@ -62,6 +64,8 @@ def main():
 			for ip in counts:
 				#print("IP: " + ip + "Tally:" + counts[ip] + "OS: " + ip2os[ip])
 				outputWriter.writerow([ip,ip2os[ip],counts[ip]])
+
+                toptalker()
 	        webbrowser.open("./visualize/index.html")
 
 if __name__=="__main__": main()
