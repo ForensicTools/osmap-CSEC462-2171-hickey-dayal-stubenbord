@@ -9,8 +9,7 @@ os="$(echo $output| cut -d"," -f 2)"
 conv="$(echo $output| cut -d "," -f 3)"
 
 
-toptalker= "$(echo "Top Talker:" $ip)"
-TTos="$(echo "OS:" $os)"
-TTCov="$(echo "Conversations:" $conv)"
+echo "Top Talker:" $ip;
+echo "OS:" $os;
+echo "Conversations:" $conv >> toptalker.txt
 
-printf $toptalker'\n'$TTos'\n'$TTconv > toptalker.txt
