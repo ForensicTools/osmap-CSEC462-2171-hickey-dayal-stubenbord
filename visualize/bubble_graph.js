@@ -1,12 +1,12 @@
 function bubbleChart() {
-    var x = document.title;
-    var width = 10000,
-        height = 10000,
-        maxRadius = 10000,
+    var width = 1000,
+        height = 1000,
+        maxRadius = 6,
         columnForColors = "category",
         columnForRadius = "views";
 
     function chart(selection) {
+
         var data = selection.enter().data();
         var div = selection,
             svg = div.selectAll('svg');
@@ -28,10 +28,10 @@ function bubbleChart() {
 
 
         var simulation = d3.forceSimulation(data)
-            .velocityDecay(0.2)
-            .force("collide", d3.forceManyBody().strength([-50]))
-            .force("x", d3.forceX().strength(0.2))
-            .force("y", d3.forceY().strength(0.2))
+            .velocityDecay(0.15)
+            .force("collide", d3.forceManyBody().strength([-70]))
+            .force("x", d3.forceX().strength(0.15))
+            .force("y", d3.forceY().strength(0.15))
             //.force("collide",dc.forceCollide())
             .on("tick", ticked);
 
@@ -42,6 +42,9 @@ function bubbleChart() {
                  })
                 .attr("cy", function(d) {
                     return d.y;
+                })
+                .attr("cz",function(d) {
+                    return d.z;
                 });
         }
 
@@ -53,7 +56,6 @@ function bubbleChart() {
         })]).range([5,18])     //5,18
 
         var node = svg.selectAll("circle")
-            .sort(data)
             .data(data)
             .enter()
             .append("circle")
@@ -122,5 +124,4 @@ function bubbleChart() {
 
     return chart;
 
-}i
-
+}
