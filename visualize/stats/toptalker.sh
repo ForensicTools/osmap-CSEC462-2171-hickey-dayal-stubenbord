@@ -3,7 +3,7 @@
 
 for i in $(cat ../osmap.csv | cut -d "," -f 3 | sort -n) ; do echo $i > toptalker.txt;done
 
-output="$(grep $(cat toptalker.txt) osmap.csv)"
+output="$(grep $(cat toptalker.txt) ../osmap.csv)"
 ip="$(echo $output| cut -d"," -f 1)"
 os="$(echo $output| cut -d"," -f 2)"
 conv="$(echo $output| cut -d "," -f 3)"
