@@ -9,6 +9,6 @@ os="$(echo $output| cut -d"," -f 2)"
 conv="$(echo $output| cut -d "," -f 3)"
 
 
-echo "Top Talker:" $ip
-echo "OS:" $os
-echo "Conversations:" $conv
+echo "Top Talker:" $ip;
+echo "OS:" $os;
+echo "Conversations:" $conv > toptalker.txt
