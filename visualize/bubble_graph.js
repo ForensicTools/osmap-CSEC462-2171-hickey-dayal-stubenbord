@@ -1,9 +1,11 @@
 function bubbleChart() {
     var width = 1000,
         height = 1000,
-        maxRadius = 6,
+        maxRadius = 100,
         columnForColors = "category",
         columnForRadius = "views";
+
+
 
     function chart(selection) {
 
@@ -17,10 +19,10 @@ function bubbleChart() {
             .append("div")
             .style("position", "absolute")
             .style("visibility", "hidden")
-            .style("color", "white")
-            .style("padding", "12px")
-            .style("background-color", "#626D72")
-            .style("border-radius", "12px")
+            .style("color", "Black")
+            .style("padding", "20px")
+            .style("background-color", "#a5a5a5")
+            .style("border-radius", "20px")
             .style("text-align", "center")
             .style("font-family", "monospace")
             .style("width", "400px")
@@ -28,10 +30,10 @@ function bubbleChart() {
 
 
         var simulation = d3.forceSimulation(data)
-            .velocityDecay(0.15)
+            .velocityDecay(0.1)
             .force("collide", d3.forceManyBody().strength([-70]))
-            .force("x", d3.forceX().strength(0.15))
-            .force("y", d3.forceY().strength(0.15))
+            .force("x", d3.forceX().strength(0.1))
+            .force("y", d3.forceY().strength(0.1))
             //.force("collide",dc.forceCollide())
             .on("tick", ticked);
 
@@ -53,7 +55,7 @@ function bubbleChart() {
             return +d[columnForRadius];
         }), d3.max(data, function(d) {
             return +d[columnForRadius];
-        })]).range([5,18])     //5,18
+        })]).range([7,20])     //5,18
 
         var node = svg.selectAll("circle")
             .data(data)
@@ -86,7 +88,9 @@ function bubbleChart() {
                     .style('stroke','red')
 
             })
-    ;}
+
+
+        ;}
 
 
     chart.width = function(value) {
@@ -125,3 +129,4 @@ function bubbleChart() {
     return chart;
 
 }
+

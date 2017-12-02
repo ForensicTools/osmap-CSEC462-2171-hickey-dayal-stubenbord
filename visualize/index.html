@@ -3,20 +3,20 @@
 <body bgcolor="#000000">
 <div class="chart-example" id="chart"><svg>
 
-<text x="250" y="80" font-family="monospace" font-size="60px" fill="white">OSmap Results</text>
+<text x="250" y="80" font-family="monospace" font-size="60px" fill="White">OSmap Results</text>
 
 </svg></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.6.0/d3.min.js"></script>
 <script src="bubble_graph.js"></script>
 <script>
 document.title = "OSMAP RESULTS";
-    d3.csv('osmap.csv', function(error, data) {
+    d3.csv('osmap-template.csv', function(error, data) {
       if (error) {
           console.error('Error getting or parsing the data.');
           throw error;
       }
        
-      var chart = bubbleChart().width(1000).height(1000);
+      var chart = bubbleChart().width(1500).height(1300);
       d3.select('#chart').data(data).call(chart);
     });
 
