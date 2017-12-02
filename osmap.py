@@ -45,7 +45,7 @@ def analysis():
                 counts[ip] = counts.get(ip, 0) + 1
 
 def toptalker():
-    os.system("bash visualization/stats/toptalker.sh")
+    os.system("bash visualize/stats/toptalker.sh")
 
 def main():
 	#print out usage message if file not provided or too many args
