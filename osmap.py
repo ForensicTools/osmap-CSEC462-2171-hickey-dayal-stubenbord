@@ -40,7 +40,9 @@ def analysis():
 
 		type = re.search(r'(subj=...\|)', line).group(1)[5:8] + "="
 		ip = re.search(r'(?<='+ type + ')(.*?)(?=\/)', line).group(1)
-		counts[ip] = counts.get(ip, 0) + 1
+		if ip2os[ip] == "???":
+                    ip2os[ip] = "Unknown"
+                counts[ip] = counts.get(ip, 0) + 1
 
 
 def main():
