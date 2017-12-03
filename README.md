@@ -20,7 +20,7 @@ INSTALLATION:
     ./osmap.py <pcap file> 
 
 
-    uthors: 
+Authors: 
 
 Pranat Dayal    pxd5104@rit.edu
 
