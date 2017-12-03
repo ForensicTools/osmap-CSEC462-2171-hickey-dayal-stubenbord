@@ -1,4 +1,4 @@
-# osmap project (MIT License)
+# OSmap - MIT License
 # Authors: Pranat Dayal, Jimmy Hickey, Ian Stubenbord 
 
 DESCRIPTION:
