@@ -5,11 +5,13 @@
 
 <text x="250" y="80" font-family="monospace" font-size="60px" fill="White">OSmap Results</text>
 </svg>
-<iframe src="stats/toptalker.txt" style="position:absolute;top:100px;left:260px;" frameborder="0"></iframe>
+<iframe id="myFrame" src="stats/toptalker.txt" style="position:absolute;top:100px;left:260px;" frameborder="0"></iframe>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.6.0/d3.min.js"></script>
 <script src="bubble_graph.js"></script>
 <script>
+document.getElementById("myFrame").contentDocument.body.style.fontSize="20px";
+document.getElementById("myFrame").contentDocument.body.style.color="white";
 document.title = "OSMAP RESULTS";
     d3.csv('osmap.csv', function(error, data) {
       if (error) {
