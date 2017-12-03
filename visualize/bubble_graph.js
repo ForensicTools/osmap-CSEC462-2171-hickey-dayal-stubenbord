@@ -30,10 +30,10 @@ function bubbleChart() {
 
 
         var simulation = d3.forceSimulation(data)
-            .velocityDecay(0.09)
-            .force("collide", d3.forceManyBody().strength([-100]))
-            .force("x", d3.forceX().strength(0.09))
-            .force("y", d3.forceY().strength(0.09))
+            .velocityDecay(0.2)
+            .force("collide", d3.forceManyBody().strength([-70]))
+            .force("x", d3.forceX().strength(0.2))
+            .force("y", d3.forceY().strength(0.2))
             //.force("collide",dc.forceCollide())
             .on("tick", ticked);
 
