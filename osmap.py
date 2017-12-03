@@ -46,6 +46,7 @@ def analysis():
 
 def toptalker():
     os.system("bash visualize/stats/toptalker.sh")
+    os.system("bash visualize/stats/legend.sh")
 
 def main():
 	#print out usage message if file not provided or too many args
