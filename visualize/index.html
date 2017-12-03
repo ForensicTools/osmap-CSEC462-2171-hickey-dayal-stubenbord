@@ -13,6 +13,9 @@
 <script>
 document.getElementById("myFrame").contentDocument.body.style.fontSize="20px";
 document.getElementById("myFrame").contentDocument.body.style.color="white";
+document.getElementById("legend").contentDocument.body.style.fontSize="20px";
+document.getElementById("legend").contentDocument.body.style.color="white";
+
 document.title = "OSMAP RESULTS";
     d3.csv('osmap.csv', function(error, data) {
       if (error) {
