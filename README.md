@@ -9,6 +9,9 @@ OSmap is dependant on the p0f v3 for os detection. For osmap to run, p0f needs t
 
 OSmap was made and configured to be run on Debian systems. Modification of the configuration file, or manual installation of the necessary files, may allow the program to run on other linux or unix systems.
 
+![Alt text](data/preview1.png?raw=true "Screenshot")
+
+
 INSTALLATION:
 ------------
     
@@ -17,7 +20,7 @@ INSTALLATION:
     ./osmap.py <pcap file> 
 
 
-Authors: 
+    uthors: 
 
 Pranat Dayal    pxd5104@rit.edu
 
