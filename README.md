@@ -15,6 +15,7 @@ OSmap was made and configured to be run on Debian systems. Modification of the c
 INSTALLATION:
 ------------
     
+    sudo apt-get update
     sudo ./configure.sh 
 
     ./osmap.py <pcap file> 
