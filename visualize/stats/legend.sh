@@ -4,4 +4,5 @@ os="$(cat visualize/osmap.csv | cut -d "," -f 2 | sort | uniq | grep -v "categor
 printf "LIST OF OPERATING SYSTEMS: \n" > visualize/stats/legend.txt
 total="$(cat visualize/osmap.csv | wc -l)"
 printf "Total Clients : $total\n" >> visualize/stats/legend.txt
-printf "   [+] $os\n" >> visualize/stats/legend.txt
+for i in $os;
+    do printf "   [+] $os\n" >> visualize/stats/legend.txt; done
