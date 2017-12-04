@@ -17,6 +17,8 @@ function packages
     apt-get install libpcap-dev
     echo -e "${green}[*] Installing python-dev${nc}"
     apt-get install python-dev python-pip
+    pip install pyshark
+    apt-get install libjson-c-dev
     echo -e "${green} [+] Completed installation of required packages${nc}"
 
 }
