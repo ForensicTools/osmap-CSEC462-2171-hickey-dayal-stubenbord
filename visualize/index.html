@@ -1,18 +1,35 @@
 <!DOCTYPE html>
+<html>
+<body bgcolor="#000000">
+<div class="chart-example" id="chart"><svg>
 
-<div class="chart-example" id="chart"><svg></svg></div>
-
+<text x="250" y="80" font-family="monospace" font-size="60px" fill="White">OSmap Results</text>
+</svg>
+<iframe id="myFrame" src="stats/toptalker.txt" style="position:absolute;top:100px;left:260px;"overflow="hidden" frameborder="0"></iframe>
+<iframe id="legend" src="stats/legend.txt" style="position:absolute;top:50px;left:1500px;" height="1000" width="500" overflow="hidden" frameborder="0"></iframe>
+</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.6.0/d3.min.js"></script>
 <script src="bubble_graph.js"></script>
 <script>
+document.getElementById("myFrame").contentDocument.body.style.fontSize="20px";
+document.getElementById("myFrame").contentDocument.body.style.color="white";
+document.getElementById("legend").contentDocument.body.style.fontSize="30px";
+document.getElementById("legend").contentDocument.body.style.color="white";
 
+document.title = "OSMAP RESULTS";
     d3.csv('osmap.csv', function(error, data) {
       if (error) {
           console.error('Error getting or parsing the data.');
           throw error;
       }
-      var chart = bubbleChart().width(600).height(400);
+       
+      var chart = bubbleChart().width(1500).height(1300);
       d3.select('#chart').data(data).call(chart);
     });
 
+     
+
 </script>
+</body>
+</html>
+
